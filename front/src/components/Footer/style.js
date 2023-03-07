@@ -5,17 +5,16 @@ const Content = styled.div`
   position: fixed;
   bottom: 0;
   background-color: ${Colors.BackgroundColorPrimary};
-  -webkit-box-shadow: -1px -34px 54px 0px rgba(20, 6, 38, 09);
-  -moz-box-shadow: -1px -34px 54px 0px rgba(20, 6, 38, 09);
-  box-shadow: -1px -34px 54px 0px rgba(20, 6, 38, 09);
+  -webkit-box-shadow: -2px 6px 54px 40px rgba(20, 6, 38, 0.75);
+  -moz-box-shadow: -2px 6px 54px 40px rgba(20, 6, 38, 0.75);
+  box-shadow: -2px 6px 54px 40px rgba(20, 6, 38, 0.75);
   height: 60px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  border-radius: 30px 30px 0 0;
-`
+`;
 
 const Menu = styled.ul`
   width: 100%;
@@ -26,10 +25,10 @@ const Menu = styled.ul`
 
 const MenuItem = styled.li`
   font-size: 28px;
-  &.inactive {
+  .inactive {
     color: rgba(255, 255, 255, 0.4);
   }
-  &.active {
+  .active {
     color: ${Colors.White};
     position: relative;
     &::after {
