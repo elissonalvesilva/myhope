@@ -85,7 +85,8 @@ const SignupItem = styled.p`
   a {
     text-decoration: none;
     font-weight: bold;
-    color: ${Colors.Yellow}
+    color: ${Colors.Yellow};
+    cursor: pointer;
   }
 `
 
