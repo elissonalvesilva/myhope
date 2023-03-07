@@ -14,12 +14,30 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const Logo = styled.h1`
   color: ${Colors.White};
   font-family: MontserratAlt1Bold !important;
   font-size: 32px;
+
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: typewriter 1s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
+  overflow: hidden;
+
+  @keyframes typewriter{
+    from{width: 0;}
+    to{width: 45%;}
+  }
+  @keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+  }
 `
 
 const Content = styled.div`
