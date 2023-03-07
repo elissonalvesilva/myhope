@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
+import './style.css';
 import App from './App.js';
 import { Colors } from './styles/colors';
 import './assets/fonts/MontserratAlt1-Bold.ttf';

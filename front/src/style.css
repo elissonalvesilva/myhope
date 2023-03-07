@@ -1,0 +1,9 @@
+@font-face {
+  font-family: MontserratAlt1Bold;
+  font-display: swap;
+  src: local('MontserratAlt1-Bold'),
+       url('./assets/fonts/MontserratAlt1-Bold.ttf') format('truetype'),
+       url('./assets/fonts/MontserratAlt1-Bold.woff') format('woff'),
+       url('./assets/fonts/MontserratAlt1-Bold.woff2') format('woff2');
+  font-weight: bold;
+}

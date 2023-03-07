@@ -20,8 +20,8 @@ const Logo = styled.h1`
   color: ${Colors.White};
   position: absolute;
   top: 20px;
-  right: 30px;
-  font-family: 'Montserratalt1' !important;
+  right: 20px;
+  font-family: MontserratAlt1Bold !important;
   font-size: 18px;
 `
 
