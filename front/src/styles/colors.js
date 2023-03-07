@@ -5,6 +5,7 @@ const Colors = {
   Purple: '#8B41F2',
   Yellow: '#F2E307',
   Blue: '#74AABE',
+  Green: '#64CBA9',
 };
 
 const InputColors = {
