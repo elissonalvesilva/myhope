@@ -14,7 +14,7 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-left: 20px;
   span {
     font-family: MontserratAlt1Bold !important;
