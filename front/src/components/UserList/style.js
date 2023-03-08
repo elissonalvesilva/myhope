@@ -3,6 +3,7 @@ import { Colors } from '../../styles/colors';
 
 const List = styled.ul`
   margin-top: 20px;
+  padding-bottom: 70px;
 `
 const ListItem = styled.li`
   margin-bottom: 15px;
