@@ -36,7 +36,7 @@ const Coin = styled.div`
   align-items: center;
   justify-content: center;
   min-width: 30px;
-  max-width: 75px;
+  max-width: 90px;
   img {
     width: 20px;
   }

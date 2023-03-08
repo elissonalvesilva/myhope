@@ -7,7 +7,17 @@ import {
 import Profile from '../Profile';
 import coinIcon from '../../assets/gold-coin.svg'
 
-export default function Navbar() {
+export default function Navbar({ totalCoins = 0 }) {
+  const SUFFIXES = 'KMBT'
+  function getSuffixedNumber(num) {
+      if(num == 0) {
+        return num;
+      }
+      var power = Math.floor(Math.log10(num));
+      var index = Math.floor(power / 3);
+      num = Math.round(num / Math.pow(10, (index * 3)));
+      return num + (SUFFIXES[index - 1] || 0);
+  }
   const navigate = useNavigate();
 
   function onClick() {
@@ -22,7 +32,7 @@ export default function Navbar() {
       </Logo>
       <Coin onClick={onClick}>
         <img src={coinIcon} alt="coin"/>
-        <span className="total">120</span>
+        <span className="total">{getSuffixedNumber(totalCoins)}</span>
       </Coin>
     </Nav>
   )
