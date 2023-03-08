@@ -11,7 +11,7 @@ const ModalOverlay = styled.div`
 `
 
 const ModalBottom = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: ${Colors.White};
   min-height: 200px;
@@ -19,11 +19,12 @@ const ModalBottom = styled.div`
   border-radius: 20px 20px 0px 0px;
   padding: 40px 20px;
   z-index: 999;
+  align-self: end;
 `
 
 const ModalTop = styled.div`
-  position: absolute;
-  Top: 0;
+  position: fixed;
+  top: 0;
   background-color: ${Colors.White};
   min-height: 200px;
   min-width: 100vw;
