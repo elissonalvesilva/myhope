@@ -5,6 +5,7 @@ import {
   Nav,
   Logo,
   Coin,
+  Navigation,
 } from './style';
 import Profile from '../Profile';
 import coinIcon from '../../assets/gold-coin.svg'
@@ -34,9 +35,12 @@ export default function Navbar({ totalCoins = 0, canGoBack = false, arrowColor='
     <Nav>
       {
         canGoBack ? (
-          <div className='icon-previous' onClick={onClickPrevious}>
-            <MdOutlineArrowBack className='icon' style={{ color: arrowColor }} />
-          </div>
+          <Navigation>
+            <div className='icon-previous' onClick={onClickPrevious}>
+              <MdOutlineArrowBack className='icon' style={{ color: arrowColor }} />
+            </div>
+            <h2 className='title'>Perfil</h2>
+          </Navigation>
         ) :
         (
           <>

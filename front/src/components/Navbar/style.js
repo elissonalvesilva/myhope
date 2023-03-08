@@ -7,18 +7,6 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
-
-  .icon-previous {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: ${Colors.Purple};
-    font-size: 23px;
-
-    .icon {
-      margin-top: 5px;
-    }
-  }
 `
 
 const Logo = styled.div`
@@ -61,8 +49,34 @@ const Coin = styled.div`
   }
 `
 
+const Navigation = styled.div`
+  display: flex;
+  width: 100%;
+  .title {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${Colors.White};
+  }
+  .icon-previous {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${Colors.Purple};
+    font-size: 23px;
+
+    .icon {
+      margin-top: 5px;
+    }
+  }
+`
+
 export {
   Nav,
   Logo,
   Coin,
+  Navigation,
 }
