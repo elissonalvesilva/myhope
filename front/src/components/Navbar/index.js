@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Nav,
   Logo,
@@ -7,6 +8,11 @@ import Profile from '../Profile';
 import coinIcon from '../../assets/gold-coin.svg'
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  function onClick() {
+    navigate('/ranking');
+  }
   return (
     <Nav>
       <Profile/>
@@ -14,7 +20,7 @@ export default function Navbar() {
         <span className="my">MY</span>
         <span className="hope">HOPE</span>
       </Logo>
-      <Coin>
+      <Coin onClick={onClick}>
         <img src={coinIcon} alt="coin"/>
         <span className="total">120</span>
       </Coin>
