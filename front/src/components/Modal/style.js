@@ -1,34 +1,38 @@
 import styled from 'styled-components';
 import { Colors } from '../../styles/colors';
 
-const ModalContainer = styled.div`
-  background-color: rgba(0, 0, 0, .4);
+const ModalOverlay = styled.div`
+  top: 0;
+  background-color: rgba(0, 0, 0, .7);
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 99;
+  z-index: 2;
 `
 
 const ModalBottom = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   background-color: ${Colors.White};
   min-height: 200px;
   min-width: 100vw;
   border-radius: 20px 20px 0px 0px;
+  padding: 40px 20px;
+  z-index: 999;
 `
 
 const ModalTop = styled.div`
-  position: fixed;
+  position: absolute;
   Top: 0;
   background-color: ${Colors.White};
   min-height: 200px;
   min-width: 100vw;
   border-radius: 0px 0px 20px 20px;
+  z-index: 999;
 `
 
 const ModalCenter = styled.div`
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 48%;
   transform: translate(-50%, -50%);
@@ -37,10 +41,11 @@ const ModalCenter = styled.div`
   min-width: 80vw;
   border-radius: 20px;
   margin: 0 10px;
+  z-index: 999;
 `
 
 export {
-  ModalContainer,
+  ModalOverlay,
   ModalBottom,
   ModalTop,
   ModalCenter,

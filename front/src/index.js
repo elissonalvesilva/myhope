@@ -7,12 +7,23 @@ import './style.css';
 import App from './App.js';
 import { Colors } from './styles/colors';
 import './assets/fonts/MontserratAlt1-Bold.ttf';
+import { ModalProvider } from './contexts/ModalContext';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
     background-color: ${Colors.BackgroundColorPrimary};
     font-size: 16px;
+
+    &.modal-active {
+      overflow: hidden;
+    }
+  }
+  [aria-hidden="false"] {
+    display: none;
+  }
+  [aria-hidden="true"] {
+    display: block;
   }
   @font-face {
     font-family: 'Montserratalt1';
@@ -28,7 +39,9 @@ const GlobalStyle = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyle/>
-    <App />
+    <ModalProvider>
+      <GlobalStyle/>
+      <App />
+    </ModalProvider>
   </React.StrictMode>
 );

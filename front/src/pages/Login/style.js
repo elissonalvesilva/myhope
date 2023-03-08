@@ -7,6 +7,7 @@ const Container = styled.div`
   height: 100vh;
   overflow: hidden;
   background-color: ${Colors.Purple};
+  z-index: -1;
 `;
 
 const Header = styled.div`
@@ -74,7 +75,19 @@ const Button = styled.button`
   padding: 15px;
   border-radius: 15px;
   font-size: 16px;
-  margin-top: 30px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+`
+
+const ForgotPassword = styled.div`
+  float: right;
+  margin: 10px 5px 0 0;
+  text-align: center;
+  text-align: right;
+  color: ${Colors.White};
+  font-weight: 200;
+  font-size: 14px;
 `
 
 const SignupItem = styled.p`
@@ -98,5 +111,6 @@ export {
   Content,
   LoginForm,
   Button,
+  ForgotPassword,
   SignupItem,
 }

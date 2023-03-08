@@ -7,11 +7,13 @@ const Colors = {
   Blue: '#74AABE',
   Green: '#64CBA9',
   PrimaryGradient: 'background linear-gradient(to right, #9F41FE 0%, 29.228591918945312%, #857FD7 58.457183837890625%, 79.22859191894531%, #64CBA9 100%);',
+  Gray: '#CCD0D9',
+  Red: '#D92332',
 };
 
 const InputColors = {
   Light: '#FFFFFF',
-  Dark: '#FFFFFF',
+  Dark: Colors.BackgroundColorPrimary,
 }
 
 export {

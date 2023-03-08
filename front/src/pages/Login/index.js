@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -8,19 +9,29 @@ import {
   Content,
   LoginForm,
   Button,
+  ForgotPassword,
   SignupItem,
 } from './style';
 
 import Input from '../../components/Input';
-import Modal from '../../components/Modal';
+import ForgotPasswordSteps from './ForgotPassword';
 import { Colors } from '../../styles/colors';
-
 import icon from '../../assets/login-icon.gif';
+import { ModalContext } from '../../contexts/ModalContext';
 
 export default function Login() {
+  const [ isActive, setIsActive ] = useContext(ModalContext);
+
+  function ForgotPasswordAction() {
+    setIsActive(true);
+  }
+
+  function dismissModal() {
+    setIsActive(false);
+  }
+
   return (
     <>
-      <Modal type='bottom' />
       <Container>
         <Header>
           <Logo>MYHOPE</Logo>
@@ -49,11 +60,18 @@ export default function Login() {
               color={Colors.White}
               labelBackground={Colors.BackgroundColorPrimary}
             />
+
+            <ForgotPassword onClick={ForgotPasswordAction}>
+              Esqueceu sua senha ?
+            </ForgotPassword>
             <Button>ENTRAR</Button>
           </LoginForm>
           <SignupItem>Não possui conta? <Link to='/signup'> Criar Agora </Link></SignupItem>
         </Content>
       </Container>
+      {
+        isActive ? (<ForgotPasswordSteps isActive={isActive} dismiss={dismissModal} />) : null
+      }
     </>
   )
 }

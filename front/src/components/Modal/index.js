@@ -1,11 +1,9 @@
 import {
-  ModalContainer,
+  ModalOverlay,
   ModalBottom,
   ModalTop,
   ModalCenter,
 } from './style';
-
-
 
 
 function Bottom({ children }) {
@@ -33,7 +31,7 @@ function Top({ children }) {
 }
 
 
-export default function Modal({ type = 'center', children }) {
+export default function Modal({ type = 'center', children, isActive = false, dismiss = () => {} }) {
 
   const TypeModal = {
     'bottom': Bottom({ children }),
@@ -41,9 +39,13 @@ export default function Modal({ type = 'center', children }) {
     'center': Center({ children }),
   }
 
-  return(
-    <ModalContainer>
-      { TypeModal[type] }
-    </ModalContainer>
-  )
+  if (isActive) {
+    return(
+      <>
+        <ModalOverlay onClick={dismiss} />
+        { TypeModal[type] }
+      </>
+    )
+  }
+  return null;
 }

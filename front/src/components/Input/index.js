@@ -8,7 +8,7 @@ export default function Input(
     placeholder = '',
     onChange,
     className = null,
-    id = '',
+    id = Math.floor(Math.random() * 1000),
     label = '',
     color = '',
     labelBackground= '',

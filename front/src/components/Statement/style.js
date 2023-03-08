@@ -36,7 +36,7 @@ const ListItem = styled.li`
     }
     .description {
       text-transform: uppercase;
-      color: #CCD0D9;
+      color: ${Colors.Gray};
       font-size: 10px;
     }
   }
