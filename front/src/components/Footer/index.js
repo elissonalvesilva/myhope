@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import { HiOutlineUserCircle } from 'react-icons/hi2';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiTrophy } from 'react-icons/ci';
 import { CiWallet } from 'react-icons/ci';
@@ -44,6 +44,16 @@ export default function Footer() {
             }
           >
             <CiWallet/>
+          </NavLink>
+        </MenuItem>
+        <MenuItem className='profile'>
+          <NavLink
+            to='/profile'
+            className={({ isActive }) =>
+              isActive ? activeClassName : 'inactive'
+            }
+          >
+            <HiOutlineUserCircle/>
           </NavLink>
         </MenuItem>
       </Menu>

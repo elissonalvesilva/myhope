@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Login from '../pages/Login';
+import Profile from "../pages/Profile";
 import Quiz from "../pages/Quiz";
 import Ranking from "../pages/Ranking";
 import Signup from "../pages/Signup";
@@ -14,6 +15,7 @@ export default function AppRoutes() {
       <Route element={<Ranking />} path="/ranking" />
       <Route element={<Wallet />} path="/wallet" />
       <Route element={<Quiz />} path="/quiz" />
+      <Route element={<Profile />} path="/profile" />
     </Routes>
   )
 }

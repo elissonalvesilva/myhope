@@ -44,6 +44,14 @@ const MenuItem = styled.li`
       border-radius: 1px;
     }
   }
+  &.profile a {
+    position: relative;
+    top: -3px;
+
+    &::after {
+      bottom: -25px;
+    }
+  }
 `
 
 export {
