@@ -1,10 +1,10 @@
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 
-export default function Container({ children }) {
+export default function Container({ children, canGoBack = false, arrowColor = '' }) {
   return (
     <>
-      <Navbar />
+      <Navbar canGoBack={canGoBack} arrowColor={arrowColor} />
       {children}
       <Footer/>
     </>
