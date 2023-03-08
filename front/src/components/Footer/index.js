@@ -18,7 +18,7 @@ export default function Footer() {
       <Menu>
         <MenuItem>
           <NavLink
-            to='/quiz'
+            to='/quizzes'
             className={({ isActive }) =>
               isActive ? activeClassName : 'inactive'
             }
