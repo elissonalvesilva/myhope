@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../styles/colors";
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: ${Colors.Purple};
 `

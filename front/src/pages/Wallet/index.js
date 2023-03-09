@@ -20,7 +20,7 @@ export default function Wallet() {
           <div className='coin'>
             <img src={coinIcon} alt='coin' />
           </div>
-          <h2 className='value'>1,200</h2>
+          <h2 className='value'>1000</h2>
         </div>
         <Tabs>
           <Tab className='active'>Histórico</Tab>

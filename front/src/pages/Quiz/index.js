@@ -82,54 +82,54 @@ export default function Quiz() {
     questions: [
       {
         id: 1,
-        type: 'Simple question',
-        question: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ?',
+        type: 'Questão difícil',
+        question: 'Qual o nome e a idade da pessoa mais velha mencionada na Bíblia?',
         answers: [
           {
             id: 1,
-            text: 'France',
+            text: 'Enos, viveu 905 anos',
             correct: true,
           },
           {
             id: 2,
-            text: 'Alemanha',
+            text: 'Noé, viveu 990 anos',
             correct: false,
           },
           {
             id: 3,
-            text: 'Brasil',
+            text: 'Matusalém, viveu 969 anos',
             correct: false,
           },
           {
             id: 4,
-            text: 'USA',
+            text: 'Rainha Ester, viveu 859 anos',
             correct: false,
           }
         ]
       },
       {
         id: 2,
-        type: 'Compost question',
-        question: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ?',
+        type: 'Questão difícil',
+        question: 'Qual o nome e a idade da pessoa mais velha mencionada na Bíblia?',
         answers: [
           {
             id: 1,
-            text: 'Eduarda',
+            text: 'Enos, viveu 905 anos',
             correct: true,
           },
           {
             id: 2,
-            text: 'Elisson',
+            text: 'Noé, viveu 990 anos',
             correct: false,
           },
           {
             id: 3,
-            text: 'Danilo',
+            text: 'Matusalém, viveu 969 anos',
             correct: false,
           },
           {
             id: 4,
-            text: 'USA',
+            text: 'Rainha Ester, viveu 859 anos',
             correct: false,
           }
         ]

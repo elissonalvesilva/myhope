@@ -10,7 +10,7 @@ import {
 import Profile from '../Profile';
 import coinIcon from '../../assets/gold-coin.svg'
 
-export default function Navbar({ totalCoins = 0, canGoBack = false, arrowColor='' }) {
+export default function Navbar({ totalCoins = 1000, canGoBack = false, arrowColor='' }) {
   const SUFFIXES = 'KMBT'
   function getSuffixedNumber(num) {
       if(num == 0) {
@@ -40,6 +40,7 @@ export default function Navbar({ totalCoins = 0, canGoBack = false, arrowColor='
               <MdOutlineArrowBack className='icon' style={{ color: arrowColor }} />
             </div>
             <h2 className='title'>Perfil</h2>
+            <h2>Editar</h2>
           </Navigation>
         ) :
         (
