@@ -65,7 +65,12 @@ export default function Quiz() {
       return (
         <>
           <Button onClick={prevQuestion}>Voltar</Button>
-          <Button type='submit'>Finalizar</Button>
+          {
+            selectedAnswers.length == quiz.questions.length ? (
+              <Button type='submit'>Finalizar</Button>
+            ): null
+          }
+          
         </>
       )
     }else if(currentQuestion > 1) {
