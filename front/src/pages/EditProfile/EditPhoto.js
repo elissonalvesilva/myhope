@@ -12,14 +12,37 @@ import {
 export default function EditPhoto({ isActive, dismiss, takeImage }) {
   const [openCamera, setOpenCamera] = useState(false);
 
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    takeImage(base64);
+    dismiss();
+  };
+
   return(
     <>
       <TakePicture open={openCamera} closeCamera={dismiss} setImage={takeImage} />
       <Modal type='bottom' isActive={isActive} dismiss={dismiss}>
         <List>
           <ListItem>
-            <HiOutlinePhoto className='icon' />
-            Escolha da biblioteca de foto
+            <label className='input'>
+              <input type="file" accept="image/x-png,image/jpeg,image/gif" onChange={handleFileUpload} />
+              <HiOutlinePhoto className='icon' />
+              Escolha da biblioteca de foto
+            </label>
           </ListItem>
           <ListItem onClick={() => {setOpenCamera(true)}}>
             <IoCameraOutline className='icon' />
