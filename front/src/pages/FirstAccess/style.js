@@ -53,9 +53,8 @@ const Content = styled.div`
   }
 
   &.finish {
-    margin-top: 0;
+    margin-top: 10px;
     position: relative;
-    top: 8%;
   }
 
   .first-step {

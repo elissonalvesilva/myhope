@@ -1,6 +1,51 @@
 import styled from 'styled-components';
 import { Colors } from '../../styles/colors';
 
+const Container = styled.div`
+  width: 100vw;
+`
+
+const Nav = styled.nav`
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+`
+
+const Navigation = styled.div`
+  display: flex;
+  width: 100%;
+  .title {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${Colors.White};
+  }
+  .edit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${Colors.White};
+  }
+
+  .icon-previous {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${Colors.Purple};
+    font-size: 23px;
+
+    .icon {
+      margin-top: 5px;
+      color: ${Colors.White};
+    }
+  }
+`
+
 const Header = styled.div`
   height: 250px;
   width: 100vw;
@@ -94,6 +139,9 @@ const Position = styled.div`
 `
 
 export {
+  Container,
+  Nav,
+  Navigation,
   Header,
   ProfileContent,
   ProfileItem,

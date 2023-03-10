@@ -11,7 +11,7 @@ import {
   TakePhotoButton,
 } from './style';
 
-export default function Photo({ setImage }) {
+export default function Photo({ setImage, close = () => {} }) {
   const camera = useRef(null);
   const [activeDeviceId, setActiveDeviceId] = useState(undefined);
 
@@ -38,6 +38,7 @@ export default function Photo({ setImage }) {
                 if (camera.current) {
                   const photo = camera.current.takePhoto();
                   setImage(photo);
+                  close();
                 }
               }}
             >

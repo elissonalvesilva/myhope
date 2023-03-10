@@ -16,9 +16,12 @@ import quiz from '../../assets/quiz.png';
 import ranking from '../../assets/ranking.png';
 import wallet from '../../assets/wallet.png';
 
-function FourthStep({ goTo }) {
+function FourthStep({ prevStep, goTo }) {
   return(
     <>
+      <Nav>
+        <MdOutlineArrowBack className='icon' onClick={prevStep}/>
+      </Nav>
       <Content className='finish'>
         <img src={wallet} alt='quiz' className='print' />
         <div className='step'>

@@ -8,6 +8,7 @@ import Ranking from "../pages/Ranking";
 import Signup from "../pages/Signup";
 import Wallet from "../pages/Wallet";
 import FirstAccess from "../pages/FirstAccess";
+import EditProfile from "../pages/EditProfile";
 
 export default function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ export default function AppRoutes() {
       <Route element={<Wallet />} path="/wallet" />
       <Route element={<Quizzes />} path="/quizzes" />
       <Route element={<Profile />} path="/profile" />
+      <Route element={<EditProfile />} path="/profile/edit" />
       <Route element={<FirstAccess />} path="/intro" />
       <Route element={<Quiz />} path="/quiz/:quizId" />
     </Routes>
