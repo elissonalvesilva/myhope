@@ -95,6 +95,26 @@ const SignupItem = styled.p`
   }
 `
 
+const ModalStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  line-height: 23px;
+  .icon {
+    &.err {
+      color: red;
+    }
+    &.success {
+      color: green;
+    }
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+`;
+
 export {
   Container,
   Header,
@@ -103,4 +123,5 @@ export {
   SignupForm,
   Button,
   SignupItem,
+  ModalStyle,
 }
