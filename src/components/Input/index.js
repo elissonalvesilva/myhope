@@ -6,7 +6,7 @@ export default function Input(
   { 
     type,
     placeholder = '',
-    onChange,
+    onChange = () => {},
     className = null,
     id = Math.floor(Math.random() * 1000),
     label = '',
