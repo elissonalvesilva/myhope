@@ -70,7 +70,7 @@ export default function Signup() {
 
   function submit(e) {
     e.preventDefault();
-    axios.post(configEnv.MYHOPE_API, {
+    axios.post(`${configEnv.MYHOPE_API}/user`, {
       name,
       lastName,
       email,
