@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Colors } from '../../styles/colors';
 
 
 const InputGroup = styled.div`
@@ -21,6 +22,12 @@ const InputGroup = styled.div`
     color: ${props => props.color};
     padding: 20px;
     font-size: 16px;
+  }
+
+  .error {
+    color: ${Colors.Yellow};
+    padding: 5px 5px;
+    font-weight: 100;
   }
 `;
 

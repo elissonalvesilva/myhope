@@ -12,11 +12,18 @@ export default function Input(
     label = '',
     color = '',
     labelBackground= '',
+    hasError = false,
+    errorMessage = ''
   }) {
   return (
     <InputGroup className={className} color={color} labelBackground={labelBackground}>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} placeholder={placeholder} onChange={onChange} />
+      {
+        hasError && (
+          <p className='error'>{errorMessage}</p>
+        )
+      }
     </InputGroup>
   )
 }
