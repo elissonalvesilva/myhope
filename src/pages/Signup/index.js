@@ -16,6 +16,7 @@ import {
 } from './style';
 
 import Input from '../../components/Input';
+import Loading from '../../components/Loading';
 import { Colors } from '../../styles/colors';
 import { configEnv } from '../../config/index'
 import axios from 'axios';
@@ -32,8 +33,9 @@ export default function Signup() {
   const [modalMessage, setModalMessage] = useState('');
   const [activeModal, setActiveModal] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [inputErrorMessage, setInputErrorMessage] = useState('');
-  const [inputWithError, setInputWithError] = useState({
+  const initialSchemState = {
     name: {
       hasError: false,
       message: ''
@@ -54,7 +56,8 @@ export default function Signup() {
       hasError: false,
       message: ''
     },
-  })
+  }
+  const [inputWithError, setInputWithError] = useState(initialSchemState)
 
   const schema = yup.object({
     name: yup
@@ -74,8 +77,15 @@ export default function Signup() {
       .min(5, 'É necessário pelo menos ter 5 caracteres')
       .required('É necessário informar a sua senha'),
     confirmPassword: yup
-    .string()
-    .oneOf([yup.ref("password"), null], "Passwords não são iguais").required('É necessário informar a senha')
+      .string()
+      .test(
+        'passwords-match', 
+        'Senhas precisam ser iguais', 
+        (value, context) => {
+          console.log(context.parent.password == value, context.parent, value);
+          return context.parent.password == value;
+        }
+      )
   });
 
   function createName(event) {
@@ -118,7 +128,6 @@ export default function Signup() {
   }
 
   useEffect(() => {
-    console.log(password, confirmPassword, canSubmit)
     if(password === confirmPassword) {
       setCanSubmit(true);
     }else {
@@ -130,20 +139,24 @@ export default function Signup() {
   const submit = useCallback(
     async (e) => {
       e.preventDefault();
+      setIsLoading(true);
       const isValid = await schema.isValid({
         name,
         lastName,
         email,
-        password
+        password,
+        confirmPassword,
       });
 
       if(isValid) {
+        setInputWithError(initialSchemState);
         axios.post(`${configEnv.MYHOPE_API}/user`, {
           name,
           lastName,
           email,
           password
         }).then((resp) => {
+          setIsLoading(false);
           setActiveModal(true);
           setModalMessage('Sucesso ao se cadastrar. Seja muito bem vindo ao MyHope');
           setTimeout(() => {
@@ -152,6 +165,7 @@ export default function Signup() {
             navigate('/');
           }, 2000);
         }).catch((err) => {
+          setIsLoading(false);
           setIsError(true);
           setActiveModal(true);
           if(err.response.status === 409) {
@@ -161,6 +175,7 @@ export default function Signup() {
           }
         })
       }else {
+        setIsLoading(false);
         schema.validate({
           name,
           lastName,
@@ -168,6 +183,7 @@ export default function Signup() {
           password
           }, { abortEarly: false }).catch((err) => {
             const inputsWithError = err.inner.reduce((acc, err) => {
+              console.log(err);
               const obj = {
                 ...acc,
                 [err.path]: {
@@ -177,15 +193,20 @@ export default function Signup() {
               }
               return obj;
             }, {});
-            console.log(inputsWithError);
-            setInputWithError({ ...inputWithError, ...inputsWithError })
+
+            setInputWithError({ ...initialSchemState, ...inputsWithError })
           });
       }
     }
-  );
+  )
 
   return (
     <>
+      {
+        isLoading && (
+          <Loading isActive={isLoading} />
+        )
+      }
       <Modal isActive={activeModal} dismiss={dismissModal}>
         <ModalStyle>
           { isError ? <AiFillAlert className='icon err' /> : <ImHappy className='icon success' /> }
