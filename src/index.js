@@ -9,6 +9,7 @@ import { Colors } from './styles/colors';
 import './assets/fonts/MontserratAlt1-Bold.ttf';
 import { ModalProvider } from './contexts/ModalContext';
 import { UserProvider } from './contexts/UserContext';
+import { AuthenticationProvider } from './contexts/AuthenticationContext';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -40,11 +41,13 @@ const GlobalStyle = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <ModalProvider>
-        <GlobalStyle/>
-        <App />
-      </ModalProvider>
-    </UserProvider>
+    <AuthenticationProvider>
+      <UserProvider>
+        <ModalProvider>
+          <GlobalStyle/>
+          <App />
+        </ModalProvider>
+      </UserProvider>
+    </AuthenticationProvider>
   </React.StrictMode>
 );

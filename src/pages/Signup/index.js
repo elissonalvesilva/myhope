@@ -34,7 +34,6 @@ export default function Signup() {
   const [activeModal, setActiveModal] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [inputErrorMessage, setInputErrorMessage] = useState('');
   const initialSchemState = {
     name: {
       hasError: false,
