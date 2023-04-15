@@ -14,8 +14,11 @@ import user from '../../assets/user.jpg';
 import user2 from '../../assets/user2.jpg';
 import user3 from '../../assets/user3.jpg';
 import UserList from '../../components/UserList';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Ranking() {
+  const [user, storeUser] = useContext(UserContext);
   return(
     <Container>
       <Content>

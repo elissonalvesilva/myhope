@@ -27,10 +27,12 @@ import Loading from '../../components/Loading';
 import Modal from '../../components/Modal';
 import { configEnv } from '../../config';
 import { AuthenticationContext } from '../../contexts/AuthenticationContext';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Login() {
   const navigate = useNavigate();
   const [token, setToken, logado, setLogado] = useContext(AuthenticationContext);
+  const [user, storeUser] = useContext(UserContext);
   const [ isActive, setIsActive ] = useContext(ModalContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -71,21 +73,33 @@ export default function Login() {
           password
         })
 
-        const { token } = resp.data;
+        const { token, userId } = resp.data;
+        
+        const userData = await axios.get(
+          `${configEnv.MYHOPE_API}/user/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
+        storeUser(userData.data);
         setToken(token);
         setLogado(true);
+
         navigate('/ranking');
       } catch (error) {
+        console.log(error);
         setIsLoading(false);
         setActiveModal(true);
-        if(error.response.status === 401 || error.response.status === 403) {
+        if(error.response?.status === 401 || error.response?.status === 403) {
           setModalMessage('Usuário e Senha incorretos');
-          setTimeout(() => {
-            setActiveModal(false);
-          }, 2000)
         }else {
           setModalMessage('Erro no sistema do MyHope. Contate a equipe');
         }
+        setTimeout(() => {
+          setActiveModal(false);
+        }, 2000)
       }
     }
   );
