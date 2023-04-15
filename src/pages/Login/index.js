@@ -33,7 +33,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [token, setToken, logado, setLogado] = useContext(AuthenticationContext);
   const [user, storeUser] = useContext(UserContext);
-  const [ isActive, setIsActive ] = useContext(ModalContext);
+  const [isActive, setIsActive ] = useContext(ModalContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [activeModal, setActiveModal] = useState(false);
@@ -67,7 +67,6 @@ export default function Login() {
       e.preventDefault();
       setIsLoading(true);
       try {
-        setIsLoading(false);
         const resp = await axios.post(`${configEnv.MYHOPE_API}/login`, {
           email,
           password
@@ -86,7 +85,7 @@ export default function Login() {
         storeUser(userData.data);
         setToken(token);
         setLogado(true);
-
+        setIsLoading(false);
         navigate('/ranking');
       } catch (error) {
         console.log(error);

@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    if(!user) {
+    if(!user && localStorage.getItem("user")) {
       const userFromLocalStorage = Buffer.from(localStorage.getItem("user"), 'base64').toString('ascii');
       setUser(JSON.parse(userFromLocalStorage));
     }
