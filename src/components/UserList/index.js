@@ -5,9 +5,9 @@ import {
 
 import user3 from '../../assets/user3.jpg';
 
-export default function UserList({ users }){
+export default function UserList({ users, reference }){
   return (
-    <List>
+    <List ref={reference}>
       {
         users.map((user, index) => (
           <ListItem key={index}>

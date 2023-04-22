@@ -144,6 +144,12 @@ const CurrentRank = styled.div`
   }
 `
 
+const LoadingMore = styled.p`
+  color: ${Colors.White};
+  position: relative;
+  bottom: calc(40vh - 100vh);
+`
+
 export {
   Content,
   Header,
@@ -151,4 +157,5 @@ export {
   Champions,
   Champion,
   CurrentRank,
+  LoadingMore,
 }
