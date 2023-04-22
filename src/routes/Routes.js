@@ -15,7 +15,7 @@ import { AuthenticationContext } from "../contexts/AuthenticationContext";
 
 
 const PrivateRoute = ({ Component }) => {
-  const [token, setToken, logado] = useContext(AuthenticationContext)
+  const [token, setToken, logado] = useContext(AuthenticationContext);
 
   return logado ? <Component /> : <Login />
 }

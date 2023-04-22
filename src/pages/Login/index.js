@@ -74,7 +74,7 @@ export default function Login() {
 
         const { token, userId } = resp.data;
         
-        const userData = await axios.get(
+        const { data } = await axios.get(
           `${configEnv.MYHOPE_API}/user/${userId}`,
           {
             headers: {
@@ -82,11 +82,17 @@ export default function Login() {
             }
           }
         );
-        storeUser(userData.data);
+        storeUser(data);
         setToken(token);
         setLogado(true);
         setIsLoading(false);
-        navigate('/ranking');
+        
+        if(data.firstAccess) {
+          navigate('/intro');
+        }else {
+          navigate('/ranking');
+        }
+
       } catch (error) {
         console.log(error);
         setIsLoading(false);

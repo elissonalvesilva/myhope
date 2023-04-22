@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineArrowBack } from 'react-icons/md';
 
@@ -15,6 +15,9 @@ import welcome from '../../assets/welcome.png';
 import quiz from '../../assets/quiz.png';
 import ranking from '../../assets/ranking.png';
 import wallet from '../../assets/wallet.png';
+import axios from 'axios';
+import { configEnv } from '../../config';
+import { AuthenticationContext } from '../../contexts/AuthenticationContext';
 
 function FourthStep({ prevStep, goTo }) {
   return(
@@ -118,6 +121,7 @@ function FirstStep({ nextStep, goTo }) {
 export default function FirstAcess() {
   const [currentStep, setCurrentStep] = useState(1);
   const navigate = useNavigate();
+  const [token, setToken] = useContext(AuthenticationContext);
 
   function nextStep() {
     setCurrentStep(currentStep+1);
@@ -128,7 +132,20 @@ export default function FirstAcess() {
   }
 
   function goTo() {
-    navigate('/perfil/photo');
+    axios.put(`${configEnv.MYHOPE_API}/user`, {
+      params: {
+        firstAccess: false,
+      }
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(() => {
+      navigate('/profile/edit');
+    }).catch((err) => {
+      console.log(err)
+      navigate('/ranking');
+    })
   }
 
   const steps = {

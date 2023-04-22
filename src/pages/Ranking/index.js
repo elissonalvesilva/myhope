@@ -14,11 +14,31 @@ import user from '../../assets/user.jpg';
 import user2 from '../../assets/user2.jpg';
 import user3 from '../../assets/user3.jpg';
 import UserList from '../../components/UserList';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
+import { AuthenticationContext } from '../../contexts/AuthenticationContext';
+import axios from 'axios';
+import { configEnv } from '../../config';
 
 export default function Ranking() {
   const [user, storeUser] = useContext(UserContext);
+  const [token, setToken] = useContext(AuthenticationContext);
+  const [userRanking, setUsersRanking] = useState([]);
+
+
+  useEffect(() => {
+    axios.post(`${configEnv.MYHOPE_API}/user/ranking`, {
+      limit: 10,
+      page: 1,
+    }, { headers: {
+      Authorization: `Bearer ${token}`
+    }}).then(({ data }) => {
+      setUsersRanking(data.users);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [])
+
   return(
     <Container>
       <Content>
@@ -53,7 +73,7 @@ export default function Ranking() {
           <h2>Sua posição atual</h2>
           <span className='position'>1</span>
         </CurrentRank>
-        <UserList />
+        <UserList users={userRanking} />
       </Content>
     </Container>
   )
