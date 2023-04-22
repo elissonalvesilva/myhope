@@ -38,7 +38,7 @@ export default function Ranking() {
   const { ref, inView } = useInView(options);
   const [isRenderAll, setIsRenderAll] = useState(false);
   const [isInitial, setIsInitial] = useState(false);
-  const limit = 2;
+  const limit = 10;
   const [isLoading, setIsLoading] = useState(true);
 
   const sendQuery = async () => {
@@ -93,7 +93,7 @@ export default function Ranking() {
         </Header>
         <Champions>
           {
-            userRanking.slice(0, 2).map((user, index) => {
+            userRanking.slice(0, 3).map((user, index) => {
 
               const className = {
                 1: 'first',

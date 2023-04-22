@@ -39,6 +39,8 @@ const Champions = styled.div`
   align-items: center;
   flex-direction: row;
   margin-top: 60px;
+
+
 `;
 
 const Champion = styled.div`
@@ -46,7 +48,9 @@ const Champion = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
   &.first {
+    order: 2;
     flex-grow: 3;
     position: relative;
     top: -49px;
@@ -73,6 +77,7 @@ const Champion = styled.div`
     }
   }
   &.second {
+    order: 3;
     flex-grow: 1;
     .place {
       display: inline-block;
@@ -89,6 +94,7 @@ const Champion = styled.div`
     }
   }
   &.third {
+    order: 1;
     flex-grow: 1;
     .place {
       position: relative;
