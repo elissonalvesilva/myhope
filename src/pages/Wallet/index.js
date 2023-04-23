@@ -17,7 +17,7 @@ export default function Wallet() {
   const [user, setUser] = useContext(UserContext);
 
   return (
-    <Container>
+    <Container totalCoins={user.account.balance}>
       <Header>
         <h1 className='name-coin'>Meus Dyos</h1>
         <div className='data'>
