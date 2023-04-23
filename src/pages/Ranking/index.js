@@ -1,7 +1,7 @@
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import Container from "../../components/Container";
 import {
@@ -23,7 +23,7 @@ import {
 } from "./style";
 
 import crown from '../../assets/crown.gif';
-import user2 from '../../assets/user2.jpg';
+import avatar from '../../assets/avatar.jpg';
 
 export default function Ranking() {
   const [user, storeUser] = useContext(UserContext);
@@ -82,7 +82,7 @@ export default function Ranking() {
         <Loading isActive={isLoading} />
       )
     }
-    <Container>
+    <Container  totalCoins={user.account.balance || 0}>
       <Content>
         <Header>
           <h1>Ranking</h1>
@@ -110,7 +110,7 @@ export default function Ranking() {
                       </div>
                     ) : null
                   }
-                  <img src={user2} className='user-avatar' alt='user avatar' />
+                  <img src={user.image || avatar} className='user-avatar' alt='user avatar' />
                   <span className='place'>{user.position}</span>
                   <span className='name'>{user.name}</span>
                 </Champion>

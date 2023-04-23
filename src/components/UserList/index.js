@@ -3,7 +3,7 @@ import {
   ListItem,
 } from './style';
 
-import user3 from '../../assets/user3.jpg';
+import avatar from '../../assets/avatar.jpg';
 
 export default function UserList({ users, reference }){
   return (
@@ -12,7 +12,7 @@ export default function UserList({ users, reference }){
         users.map((user, index) => (
           <ListItem key={index}>
             <div className='avatar'>
-              <img src={user3} alt='avatar'/>
+              <img src={user.image || avatar} alt='avatar'/>
             </div>
             <span className='name'>{ user.name }</span>
             <span className='position'>{index + 1}</span>

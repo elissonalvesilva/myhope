@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineSportsScore } from 'react-icons/md';
 import { MdOutlineArrowBack } from 'react-icons/md';
@@ -15,8 +17,10 @@ import {
   Wallet,
   Position,
 } from './style';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Profile() {
+  const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
 
   function editProfile() {
@@ -26,6 +30,8 @@ export default function Profile() {
   function onClickPrevious() {
     navigate(-1);
   }
+
+  const profileAvatar = user.image === '' ? avatar : user.image;
 
   return (
     <Container>
@@ -39,8 +45,8 @@ export default function Profile() {
         </Navigation>
       </Nav>
       <Header>
-        <h1>Seja Bem-Vindo, <span className='name'>Elisson!</span></h1>
-        <img src={avatar} alt='photo user' />
+        <h1>Seja Bem-Vindo, <span className='name'>{user.name}!</span></h1>
+        <img src={profileAvatar} alt='photo user' />
       </Header>
       <ProfileContent>
         <ProfileItem>
@@ -50,7 +56,7 @@ export default function Profile() {
               <div className='coin'>
                 <img src={coinIcon} alt='coin' />
               </div>
-              <h2 className='value'>1,200</h2>
+              <h2 className='value'>{user.account.balance}</h2>
             </div>
           </Wallet>
           <Position>
@@ -59,7 +65,7 @@ export default function Profile() {
               <div className='coin'>
                 <MdOutlineSportsScore className='icon' />
               </div>
-              <h2 className='value'> 1 Lugar</h2>
+              <h2 className='value'>{user.position}</h2>
             </div>
           </Position>
         </ProfileItem>

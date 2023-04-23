@@ -110,7 +110,7 @@ export default function EditProfile() {
 
       setUser(data);
       setIsLoading(false);
-
+      navigate('/ranking')
     } catch (error) {
       setIsLoading(false);
       setActiveModal(true);

@@ -8,7 +8,8 @@ import {
 import coinIcon from '../../assets/gold-coin.svg'
 
 
-export default function Statement() {
+export default function Statement({ statements }) {
+  console.log(statements)
   return (
     <List>
       <ListItem>

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import Container from "../../components/Container";
 
 import {
@@ -9,9 +11,11 @@ import {
 
 import coinIcon from '../../assets/gold-coin.svg'
 import Statement from "../../components/Statement";
-
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Wallet() {
+  const [user, setUser] = useContext(UserContext);
+
   return (
     <Container>
       <Header>
@@ -20,15 +24,14 @@ export default function Wallet() {
           <div className='coin'>
             <img src={coinIcon} alt='coin' />
           </div>
-          <h2 className='value'>1000</h2>
+          <h2 className='value'>{user.account.balance}</h2>
         </div>
         <Tabs>
           <Tab className='active'>Histórico</Tab>
-          <Tab className='inactive'>Débitos</Tab>
         </Tabs>
       </Header>
       <Content>
-        <Statement />
+        <Statement statements={user.account.statements || []}/>
       </Content>
     </Container>
   )
