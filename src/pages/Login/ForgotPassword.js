@@ -23,7 +23,7 @@ import {
   ErrorsMessage
 } from './errors';
 
-function StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword, onChangeConfirmPassword, errors = [] }) {
+function StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword, onChangeConfirmPassword, errors = [], newPassword, confirmNewPassword }) {
   return (
     <>
       <Header>
@@ -43,6 +43,7 @@ function StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword
             label='Nova Senha'
             labelBackground={Colors.White}
             onChange={e => onChangePassword(e.target.value)}
+            value={newPassword}
           />
           <Input
             className='input'
@@ -50,6 +51,7 @@ function StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword
             label='Confirmar Senha'
             labelBackground={Colors.White}
             onChange={e => onChangeConfirmPassword(e.target.value)}
+            value={confirmNewPassword}
           />
           {
             errors.length > 0 ? (
@@ -69,7 +71,7 @@ function StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword
   )
 }
 
-function StepCode({ nextStep, previousStep, onChangeDigits, maxDigitsInput = 4, errors = []}) {
+function StepCode({ nextStep, previousStep, onChangeDigits, maxDigitsInput = 4, errors = [], digits }) {
   const digitsRef = useRef([]);
 
   function onChange(e) {
@@ -97,6 +99,7 @@ function StepCode({ nextStep, previousStep, onChangeDigits, maxDigitsInput = 4, 
         maxLength={1}
         className='input-number'
         onChange={e => onChange(e)}
+        value={digits}
       />
     ))
 
@@ -134,7 +137,7 @@ function StepCode({ nextStep, previousStep, onChangeDigits, maxDigitsInput = 4, 
   )
 }
 
-function StepEmail({ nextStep, dismiss, errors = [] }) {
+function StepEmail({ nextStep, dismiss, errors = [], email }) {
   return (
     <>
       <Header>
@@ -147,7 +150,7 @@ function StepEmail({ nextStep, dismiss, errors = [] }) {
         <p>Entre com seu email cadastrado e nós enviaremos um email contendo um código de 4 dígitos</p>
       </Header>
       <Body>
-        <Input type='text' label='E-mail' labelBackground={Colors.White} />
+        <Input type='text' label='E-mail' labelBackground={Colors.White} value={email}/>
         {
           errors.length > 0 ? (
             <Errors>
@@ -224,9 +227,9 @@ export default function ForgotPasswordSteps({ isActive = false, dismiss = () => 
   }
   
   const steps = {
-    1: StepEmail({ nextStep, dismiss, onChangeEmailUser, errors }),
-    2: StepCode({ nextStep, previousStep, onChangeDigits, errors }),
-    3: StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword, onChangeConfirmPassword, errors }),
+    1: StepEmail({ nextStep, dismiss, onChangeEmailUser, errors, email }),
+    2: StepCode({ nextStep, previousStep, onChangeDigits, errors, digits }),
+    3: StepResetPassword({ resetPasswordSubmit, previousStep, onChangePassword, onChangeConfirmPassword, errors, newPassword, confirmNewPassword }),
   }
 
   return (

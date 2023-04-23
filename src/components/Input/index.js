@@ -13,12 +13,13 @@ export default function Input(
     color = '',
     labelBackground= '',
     hasError = false,
-    errorMessage = ''
+    errorMessage = '',
+    value = ''
   }) {
   return (
     <InputGroup className={className} color={color} labelBackground={labelBackground}>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} placeholder={placeholder} onChange={onChange} />
+      <input type={type} id={id} placeholder={placeholder} onChange={onChange} value={value} />
       {
         hasError && (
           <p className='error'>{errorMessage}</p>

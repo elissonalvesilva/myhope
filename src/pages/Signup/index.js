@@ -229,6 +229,7 @@ export default function Signup() {
               labelBackground={Colors.PurpleDark}
               hasError={inputWithError.name.hasError}
               errorMessage={inputWithError.name.message}
+              value={name}
             />
             <Input
               type='text'
@@ -240,6 +241,7 @@ export default function Signup() {
               labelBackground={Colors.PurpleDark}
               hasError={inputWithError.lastName.hasError}
               errorMessage={inputWithError.lastName.message}
+              value={lastName}
             />
             <Input
               type='email'
@@ -251,6 +253,7 @@ export default function Signup() {
               labelBackground={Colors.PurpleDark}
               hasError={inputWithError.email.hasError}
               errorMessage={inputWithError.email.message}
+              value={email}
             />
             <Input
               type='password'
@@ -262,6 +265,7 @@ export default function Signup() {
               labelBackground={Colors.PurpleDark}
               hasError={inputWithError.password.hasError}
               errorMessage={inputWithError.password.message}
+              value={password}
             />
             <Input
               type='password'
@@ -273,6 +277,7 @@ export default function Signup() {
               labelBackground={Colors.PurpleDark}
               hasError={inputWithError.confirmPassword.hasError}
               errorMessage={inputWithError.confirmPassword.message}
+              value={confirmPassword}
             />
             <Button type='submit'>CRIAR</Button>
           </SignupForm>

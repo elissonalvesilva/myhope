@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.5",
     "buffer": "^6.0.3",
+    "firebase": "^9.20.0",
+    "image-js": "^0.35.3",
     "react": "^18.2.0",
     "react-camera-pro": "^1.2.2",
     "react-dom": "^18.2.0",

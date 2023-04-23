@@ -5,8 +5,6 @@ import {
   Container,
   CameraContainer,
   CameraContent,
-  Actions,
-  Button,
   CameraControl,
   TakePhotoButton,
 } from './style';

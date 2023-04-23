@@ -140,6 +140,7 @@ export default function Login() {
               id='email'
               color={Colors.White}
               labelBackground={Colors.BackgroundColorPrimary}
+              value={email}
             />
             <Input
               type='password'
@@ -149,6 +150,7 @@ export default function Login() {
               id='password'
               color={Colors.White}
               labelBackground={Colors.BackgroundColorPrimary}
+              value={password}
             />
 
             <ForgotPassword onClick={ForgotPasswordAction}>
